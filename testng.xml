@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="OrangeHRM Login Automation Suite">
+
+    <test name="Login Test Cases">
+        <classes>
+            <class name="com.srinadh.milestone1.tests.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
