@@ -13,6 +13,14 @@ public class LoginPage {
 	    private By passwordField = By.name("password");
 	    private By loginButton = By.xpath("//button[@type='submit']");
 	    private By errorMessage = By.cssSelector("p.oxd-alert-content-text");
+	    private By usernameRequiredMessage =
+	    	    By.xpath("//input[@name='username']/ancestor::div[contains(@class,'oxd-input-group')]//span[text()='Required']");
+
+	    private	By passwordRequiredMessage =
+	    	    By.xpath("//input[@name='password']/ancestor::div[contains(@class,'oxd-input-group')]//span[text()='Required']");
+
+	    private By requiredFieldError = By.xpath("//span[text()='Required']");
+
 
 	
 	
@@ -60,4 +68,22 @@ public class LoginPage {
 	     public boolean isLoginButtonEnabled() {
 	    	    return driver.findElement(loginButton).isEnabled();
 	    	}
+	     
+	     public boolean isRequiredFieldMessageDisplayed() {
+	    	    return driver.findElements(requiredFieldError).size() > 0;
+	    	}
+
+	     
+	     public boolean isUsernameRequiredMessageDisplayed() {
+	    	    return driver.findElements(usernameRequiredMessage).size() > 0;
+	    	}
+
+	     public boolean isPasswordRequiredMessageDisplayed() {
+	    	    return driver.findElements(passwordRequiredMessage).size() > 0;
+	    	}
+	     
+	     public String getPasswordFieldValue() {
+	    	    return driver.findElement(passwordField).getAttribute("value");
+	    	}
+
 }

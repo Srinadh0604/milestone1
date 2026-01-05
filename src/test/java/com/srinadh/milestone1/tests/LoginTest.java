@@ -56,5 +56,77 @@ package com.srinadh.milestone1.tests;
 	        System.out.println(" Passed: Login button is enabled");
 	    }
 	   
+	    @Test(priority = 5)
+		public void emptyUsernameAndPasswordTest() {
+
+			System.out.println(" Empty Username and Password Test Started");
+
+			LoginPage login = new LoginPage(driver);
+			login.clickLogin();
+
+			Assert.assertTrue(login.isRequiredFieldMessageDisplayed(),
+					"Required field validation message should be displayed");
+			
+			   Assert.assertTrue(
+				        login.isPasswordRequiredMessageDisplayed(),
+				        "Password Required message should be displayed"
+				    );
+
+			   System.out.println("TC-03 Passed: Required validation messages displayed for empty fields");
+
+		}
+	    
+	    @Test(priority = 6)
+	    public void emptyUsernameValidPasswordTest() {
+
+	        System.out.println(" Empty Username with Valid Password Test Started");
+
+	        LoginPage login = new LoginPage(driver);
+	        login.enterPassword("admin123");
+	        login.clickLogin();
+
+	        Assert.assertTrue(login.isUsernameRequiredMessageDisplayed());
+	        System.out.println(" Passed: Username mandatory validation working");
+	        		
+	    }
+
+	    @Test(priority = 7)
+	    public void validUsernameEmptyPasswordTest() {
+
+	        System.out.println("TC-05: Valid Username with Empty Password Test Started");
+
+	        LoginPage login = new LoginPage(driver);
+	        login.enterUsername("Admin");
+	        login.clickLogin();
+
+	        Assert.assertTrue(login.isPasswordRequiredMessageDisplayed());
+	        System.out.println(" Passed: Password mandatory validation working");
+	    }
+
+	    @Test(priority = 8)
+	    public void passwordClearedAfterRefreshTest() {
+
+	        System.out.println("Password Clear After Refresh Test Started");
+
+	        LoginPage login = new LoginPage(driver);
+
+	        login.enterPassword("admin123");
+	        driver.navigate().refresh();
+
+	        Assert.assertEquals(login.getPasswordFieldValue(), "");
+	        System.out.println(" Passed: Password cleared after refresh");
+	    }
+
+	    @Test(priority = 9)
+	    public void loginPageTitleTest() {
+
+	        System.out.println(" Login Page Title Test Started");
+
+	        String title = driver.getTitle();
+	        Assert.assertTrue(title.contains("OrangeHRM"));
+
+	        System.out.println(" Passed: Login page title verified");
+	    }
+
 	}
 

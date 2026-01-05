@@ -6,7 +6,7 @@
       <class name="com.srinadh.milestone1.tests.LoginTest">
         <methods>
           <include name="tearDown"/>
-          <include name="verifyPasswordMasking"/>
+          <include name="emptyUsernameAndPasswordTest"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.srinadh.milestone1.tests.LoginTest -->
