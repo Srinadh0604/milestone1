@@ -15,8 +15,10 @@ import org.openqa.selenium.WebDriver;
 		
 		protected WebDriver driver;
 		
-		@BeforeMethod
+		@BeforeMethod(alwaysRun = true)
 		public void setUp() {
+			 System.out.println(">>> Browser starting");
+			 
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
@@ -29,7 +31,7 @@ import org.openqa.selenium.WebDriver;
 		
 			}
 	
-		@AfterMethod
+		@AfterMethod(alwaysRun = true)
 		public void tearDown() {
 			if (driver != null) {
 				driver.quit();

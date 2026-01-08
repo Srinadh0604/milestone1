@@ -11,7 +11,7 @@ public class LoginPage {
 
 	    private By usernameField = By.name("username");
 	    private By passwordField = By.name("password");
-	    private By loginButton = By.xpath("//button[@type='submit']");
+	    private By loginButton =  By.cssSelector("button.orangehrm-login-button");
 	    private By errorMessage = By.cssSelector("p.oxd-alert-content-text");
 	    private By usernameRequiredMessage =
 	    	    By.xpath("//input[@name='username']/ancestor::div[contains(@class,'oxd-input-group')]//span[text()='Required']");
@@ -38,7 +38,8 @@ public class LoginPage {
 	      
 	    
 	    public void enterPassword(String password) {
-	    	System.out.println("Entering password");
+//	    	System.out.println("Entering password");
+	    	System.out.println("Password value is: " + password);
 	        driver.findElement(passwordField).sendKeys(password);
         	}
 	

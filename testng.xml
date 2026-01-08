@@ -2,6 +2,15 @@
 <suite name="OrangeHRM Login Automation Suite">
 
 	<test name="Login Test Cases">
+<!-- 
+	<groups>
+	<run>
+	   <include name="valid"></include>
+	</run>
+	</groups>
+	-->
+
+	
 		<classes>
 			<class name="com.srinadh.milestone1.tests.LoginTest" />
 		</classes>
